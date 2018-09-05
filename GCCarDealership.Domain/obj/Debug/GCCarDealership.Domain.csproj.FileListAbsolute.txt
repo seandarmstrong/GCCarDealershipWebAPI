@@ -1,0 +1,5 @@
+C:\Users\armst\Documents\Grand_Circus\FinalCapstone\GCCarDealershipWebAPI\GCCarDealership.Domain\bin\Debug\GCCarDealership.Domain.dll
+C:\Users\armst\Documents\Grand_Circus\FinalCapstone\GCCarDealershipWebAPI\GCCarDealership.Domain\bin\Debug\GCCarDealership.Domain.pdb
+C:\Users\armst\Documents\Grand_Circus\FinalCapstone\GCCarDealershipWebAPI\GCCarDealership.Domain\obj\Debug\GCCarDealership.Domain.csproj.CoreCompileInputs.cache
+C:\Users\armst\Documents\Grand_Circus\FinalCapstone\GCCarDealershipWebAPI\GCCarDealership.Domain\obj\Debug\GCCarDealership.Domain.dll
+C:\Users\armst\Documents\Grand_Circus\FinalCapstone\GCCarDealershipWebAPI\GCCarDealership.Domain\obj\Debug\GCCarDealership.Domain.pdb

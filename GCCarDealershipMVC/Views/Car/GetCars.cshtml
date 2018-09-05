@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GCCarDealership.Domain.Models.CarModel>
+
+@{
+    ViewBag.Title = "Car List";
+
+}
+
+<h2>Car List</h2>
+
+<table class="table table-hover">
+<tr>
+    <th>
+        Make
+    </th>
+    <th>
+        Model
+    </th>
+    <th>
+        Year
+    </th>
+    <th>
+        Color
+    </th>
+    <th></th>
+</tr>
+@foreach (var car in Model)
+{
+<tr>
+    <td>
+        @Html.DisplayFor(modelCar => car.Make)
+    </td>
+    <td>
+        @Html.DisplayFor(modelCar => car.Model)
+    </td>
+    <td>
+        @Html.DisplayFor(modelCar => car.Year)
+    </td>
+    <td>
+        @Html.DisplayFor(modelCar => car.Color)
+    </td>
+</tr>
+}
+</table>

@@ -1,4 +1,4 @@
-﻿using GCCarDealershipWebAPI.Models;
+﻿using GCCarDealership.Domain.Models;
 using System.Data.Entity;
 
 namespace GCCarDealershipWebAPI.DAL
@@ -18,7 +18,7 @@ namespace GCCarDealershipWebAPI.DAL
             context.Cars.Add(new CarModel()
             {
                 Id = 2,
-                Make = "Aud",
+                Make = "Audi",
                 Model = "S8",
                 Year = 2018,
                 Color = "Silver"

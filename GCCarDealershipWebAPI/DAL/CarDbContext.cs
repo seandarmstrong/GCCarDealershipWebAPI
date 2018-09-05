@@ -1,4 +1,4 @@
-﻿using GCCarDealershipWebAPI.Models;
+﻿using GCCarDealership.Domain.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Diagnostics;
