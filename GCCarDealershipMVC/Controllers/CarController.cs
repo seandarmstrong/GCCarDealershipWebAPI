@@ -25,6 +25,12 @@ namespace GCCarDealershipMVC.Controllers
             return View(cars);
         }
 
+        public async Task<ActionResult> Search(string make, string model, int? year, string color)
+        {
+            var cars = await _carClient.SearchCars(make, model, year, color);
+            return View(cars);
+        }
+
         // GET: Car/Details/5
         public ActionResult Details(int id)
         {
