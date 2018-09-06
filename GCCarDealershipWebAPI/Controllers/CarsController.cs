@@ -16,7 +16,7 @@ namespace GCCarDealershipWebAPI.Controllers
         // GET: api/Cars
         public IQueryable<CarModel> GetCars()
         {
-            return db.Cars;
+            return db.Cars.OrderBy(x => x.Make).ThenBy(x => x.Model);
         }
 
         [Route("api/Cars/Search")]
@@ -40,7 +40,7 @@ namespace GCCarDealershipWebAPI.Controllers
                 cars = cars.Where(x => x.Color == color);
             }
 
-            return cars;
+            return cars.OrderBy(x => x.Make).ThenBy(x => x.Model);
         }
 
         // GET: api/Cars/5
