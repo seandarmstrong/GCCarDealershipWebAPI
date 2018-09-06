@@ -19,6 +19,30 @@ namespace GCCarDealershipWebAPI.Controllers
             return db.Cars;
         }
 
+        [Route("api/Cars/Search")]
+        public IQueryable<CarModel> GetSearch(string make = null, string model = null, int? year = null, string color = null)
+        {
+            var cars = db.Cars.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(make))
+            {
+                cars = cars.Where(x => x.Make == make);
+            }
+            if (!string.IsNullOrWhiteSpace(model))
+            {
+                cars = cars.Where(x => x.Model == model);
+            }
+            if (year.HasValue)
+            {
+                cars = cars.Where(x => x.Year == year);
+            }
+            if (!string.IsNullOrWhiteSpace(color))
+            {
+                cars = cars.Where(x => x.Color == color);
+            }
+
+            return cars;
+        }
+
         // GET: api/Cars/5
         [ResponseType(typeof(CarModel))]
         public IHttpActionResult GetCarModel(int id)
