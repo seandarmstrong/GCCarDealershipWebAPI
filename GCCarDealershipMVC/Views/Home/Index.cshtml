@@ -1,31 +1,146 @@
-﻿@{
+﻿@model GCCarDealershipMVC.Models.CarViewModel
+
+@{
     ViewBag.Title = "Home Page";
+
+    var makeItems = new List<SelectListItem>()
+    {
+        new SelectListItem
+        {
+            Text = "Audi",
+            Value = "Audi"
+        },
+        new SelectListItem
+        {
+            Text = "BMW",
+            Value = "BMW"
+        },
+        new SelectListItem
+        {
+            Text = "Maserati",
+            Value = "Maserati"
+        },
+        new SelectListItem
+        {
+            Text = "Mercedes",
+            Value = "Mercedes"
+        },
+        new SelectListItem
+        {
+            Text = "Volkswagen",
+            Value = "Volkswagen"
+        }
+    };
+    var modelItems = new List<SelectListItem>()
+    {
+        new SelectListItem
+        {
+            Text = "A6",
+            Value = "A6"
+        },
+        new SelectListItem
+        {
+            Text = "AMG GT",
+            Value = "AMG GT"
+        },
+        new SelectListItem
+        {
+            Text = "GranTurismo",
+            Value = "GranTurismo"
+        },
+        new SelectListItem
+        {
+            Text = "GTI",
+            Value = "GTI"
+        },
+        new SelectListItem
+        {
+            Text = "M3",
+            Value = "M3"
+        },
+        new SelectListItem
+        {
+            Text = "M6",
+            Value = "M6"
+        },
+        new SelectListItem
+        {
+            Text = "Quattroporte",
+            Value = "Quattroporte"
+        },
+        new SelectListItem
+        {
+            Text = "R32",
+            Value = "R32"
+        },
+        new SelectListItem
+        {
+            Text = "S8",
+            Value = "S8"
+        },
+        new SelectListItem
+        {
+            Text = "Tiguan",
+            Value = "Tiguan"
+        }
+    };
+    var colorItems = new List<SelectListItem>()
+    {
+        new SelectListItem
+        {
+            Text = "Black",
+            Value = "Black"
+        },
+        new SelectListItem
+        {
+            Text = "Blue",
+            Value = "Blue"
+        },
+        new SelectListItem
+        {
+            Text = "Red",
+            Value = "Red"
+        },
+        new SelectListItem
+        {
+            Text = "Silver",
+            Value = "Silver"
+        }
+    };
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>GC Car Dealership</h1>
+    <p class="lead">The best place for the 10 best cars</p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>View All Cars</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            When you can't decide what car you want to view, then might as well just view them all!
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>@Html.ActionLink("View All Cars", "GetCars", "Car", new { area = "" }, new { @class = "btn btn-primary" })</p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-8">
+        <h2>Find the Perfect Car</h2>
+        <p>
+            @using (@Html.BeginForm("Search", "Car", FormMethod.Get))
+    {
+        <div class="row">
+            @Html.DropDownListFor(model => model.Make, makeItems, "---SELECT MAKE---", new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="row">
+            @Html.DropDownListFor(model => model.Model, modelItems, "---SELECT MODEL---", new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="row">
+            @Html.DropDownListFor(model => model.Color, colorItems, "---SELECT COLOR---", new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="row">
+            @Html.EditorFor(phone => Model.Year)
+        </div>
+        <input type="submit" value="Search" />
+}
+        </p>
     </div>
 </div>

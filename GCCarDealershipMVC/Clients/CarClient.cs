@@ -23,15 +23,36 @@ namespace GCCarDealershipMVC.Clients
             return JsonConvert.DeserializeObject<IEnumerable<CarModel>>(response.Content);
         }
 
-        public async Task<IEnumerable<CarModel>> SearchCars(string make = null, string model = null, int? year = null, string color = null)
+        public async Task<IEnumerable<CarModel>> SearchCars(string make, string model, int? year, string color)
         {
-            var request = new RestRequest("api/Cars/Search");
+            var request = new RestRequest("api/Cars/Search", Method.GET);
             request.Parameters.Add(new Parameter()
             {
                 Name = "make",
                 Type = ParameterType.QueryString,
                 Value = make
             });
+            request.Parameters.Add(new Parameter()
+            {
+                Name = "model",
+                Type = ParameterType.QueryString,
+                Value = model
+            });
+            request.Parameters.Add(new Parameter()
+            {
+                Name = "year",
+                Type = ParameterType.QueryString,
+                Value = year
+            });
+            request.Parameters.Add(new Parameter()
+            {
+                Name = "color",
+                Type = ParameterType.QueryString,
+                Value = color
+            });
+
+            var response = await _client.ExecuteTaskAsync(request);
+            return JsonConvert.DeserializeObject<IEnumerable<CarModel>>(response.Content);
         }
 
     }
